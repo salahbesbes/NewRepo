@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 541d0be3b105a1a4cadb1b1a6635ebdc, type: 3}
+  m_Name: spell1
+  m_EditorClassIdentifier: 
+  icon: {fileID: 21300000, guid: aabe7cf4e7db8784782abc18ac7a4c10, type: 3}
+  nameItem: lighting knifs
+  prefab: {fileID: 434502828665380151, guid: f81726414fe2faa489c0cbf5637215d7, type: 3}
+  id: 2b77c37b-dd71-4897-a045-b8ac55114b52
+  ingrediants:
+  - item: {fileID: 11400000, guid: 69263fbe06114b64c8781defaf965c9d, type: 2}
+    _count: 1
+  - item: {fileID: 11400000, guid: 7354ea6574f1b814983406e7b246bf3c, type: 2}
+    _count: 1
+  - item: {fileID: 11400000, guid: 8eef5ad6d5c217f43b454c7a6e7b8f76, type: 2}
+    _count: 1

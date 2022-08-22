@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 541d0be3b105a1a4cadb1b1a6635ebdc, type: 3}
+  m_Name: Spell2
+  m_EditorClassIdentifier: 
+  icon: {fileID: 21300000, guid: af6aa2abd13a2ed4b86d7a8d8d021217, type: 3}
+  nameItem: sky ball
+  prefab: {fileID: 1593574840045950, guid: 45ae8ce3527dfcf46933282f370e9275, type: 3}
+  id: e23a938f-4f87-4341-94b5-a88ca576c1e9
+  ingrediants:
+  - item: {fileID: 11400000, guid: 8eef5ad6d5c217f43b454c7a6e7b8f76, type: 2}
+    _count: 1
+  - item: {fileID: 11400000, guid: 69263fbe06114b64c8781defaf965c9d, type: 2}
+    _count: 1
