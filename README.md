@@ -12,11 +12,11 @@ download [here](https://drive.google.com/file/d/1JI7fzOyk6m1fAKZJvbFXPF5WjSCtNOm
     git clone https://github.com/salahbesbes/NewRepo.git
 
 ## showCase
-![](image1.png)
+![](image1.PNG)
 
 
 
-![](image2.png)
+![](image2.PNG)
 
 
 ## Assets
