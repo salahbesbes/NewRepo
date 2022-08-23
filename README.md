@@ -5,6 +5,7 @@
 * ScriptableObject
 * State Machine Pattern
 * Cinemachine
+* EventSystem
 
 ## Play The Game
 download [here](https://drive.google.com/file/d/1JI7fzOyk6m1fAKZJvbFXPF5WjSCtNOms/view?usp=sharing)
