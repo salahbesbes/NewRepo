@@ -22,14 +22,14 @@ public class Player : MonoBehaviour
         [HideInInspector]
         public bool pressF = false;
 
-        public void collect(ICollectable collectable)
-        {
-                inventory.Add(collectable.item);
-                UiInventory.updateUIInventory(inventory);
-        }
 
-        public static Action<string> UiShowMessage;
+
+        public static Action<string> UiMessage;
+
+
+
         public static Action CloseNotif;
+
         public Item spell1;
         public Item spell2;
 
@@ -47,24 +47,28 @@ public class Player : MonoBehaviour
 
         [HideInInspector]
         public float lineOfSightRadius = 10;
-        public LayerMask LineOfSightLayers;
         public HashSet<Collider> EnemiesInLineOfsight = new HashSet<Collider>();
 
         [HideInInspector]
         public Collider Target;
         public Transform mapLimit;
 
-        private void Start()
+        public void Start()
         {
                 Animator = GetComponent<Animator>();
-                lineOfSightRadius = transform.GetChild(0).GetComponent<CapsuleCollider>().radius;
                 inventory.inventoryUI = UiInventory;
                 Controller = GetComponent<CharacterController>();
                 state = new PlayerStateMachine(this);
                 state.ChangeState(state.movingState);
+
+
                 openInv.onClick.AddListener(() => UiInventory.open(inventory));
         }
-
+        public void collect(ICollectable collectable)
+        {
+                inventory.Add(collectable.item);
+                UiInventory.updateUIInventory(inventory);
+        }
         public void onremoveItem()
         {
                 inventory.remove(apple);
@@ -76,31 +80,18 @@ public class Player : MonoBehaviour
                 state.OnTriggerEnter(other);
         }
 
-        public bool CheckLineOfSight(Collider Target)
-        {
-                Vector3 direction = (Target.transform.position - transform.position).normalized;
-                float dotProduct = Vector3.Dot(transform.forward, direction);
-                if (dotProduct >= Mathf.Cos(FieldOfView))
-                {
-                        if (Physics.Raycast(transform.position, direction, out RaycastHit hit, lineOfSightRadius, LineOfSightLayers))
-                        {
-                                return true;
-                        }
-                }
 
-                return false;
-        }
 
         public void CastSpell1()
         {
                 if (inventory.Occurenceitems.ContainsKey(spell1) == false)
                 {
-                        Debug.Log($" need to craft the spell at the craft table ");
+                        UiMessage.Invoke("need to craft a spell ");
                         return;
                 }
                 if (Target == null)
                 {
-                        Debug.Log($"target is null");
+                        UiMessage.Invoke("no target available");
                         return;
                 }
 
@@ -115,12 +106,12 @@ public class Player : MonoBehaviour
         {
                 if (inventory.Occurenceitems.ContainsKey(spell2) == false)
                 {
-                        Debug.Log($" need to craft the spell at the craft table ");
+                        UiMessage.Invoke("need to craft a spell ");
                         return;
                 }
                 if (Target == null)
                 {
-                        Debug.Log($"target is null");
+                        UiMessage.Invoke("no target available");
                         return;
                 }
                 ParticleSystem spell = Instantiate(spell2.prefab, Target.transform.position, Quaternion.identity).GetComponent<ParticleSystem>();

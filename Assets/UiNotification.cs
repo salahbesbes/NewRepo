@@ -10,17 +10,18 @@ public class UiNotification : MonoBehaviour
         private void Awake()
         {
                 textComponent = GetComponent<TextMeshProUGUI>();
+
         }
 
         private void OnEnable()
         {
-                Player.UiShowMessage += showMessage;
+                Player.UiMessage += showMessage;
                 Player.CloseNotif += eraseMessage;
         }
 
-        private void OnDisable()
+        private void OnDestroy()
         {
-                Player.UiShowMessage -= showMessage;
+                Player.UiMessage -= showMessage;
                 Player.CloseNotif -= eraseMessage;
         }
 
@@ -31,11 +32,12 @@ public class UiNotification : MonoBehaviour
 
         public void showMessage(string message)
         {
-                if (eraseCoroutine != null) StopCoroutine(eraseCoroutine);
-
-                textComponent.text = message;
-                eraseCoroutine = StartCoroutine(EraseMessageAfter(5));
                 transform.gameObject.SetActive(true);
+
+
+                if (eraseCoroutine != null) StopCoroutine(eraseCoroutine);
+                textComponent.text = message;
+                eraseCoroutine = StartCoroutine(EraseMessageAfter(3));
         }
 
         private IEnumerator EraseMessageAfter(int sec)

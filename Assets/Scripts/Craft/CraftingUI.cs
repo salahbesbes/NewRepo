@@ -59,7 +59,7 @@ public class CraftingUI : MonoBehaviour
                 {
                         SlotUi Slot = child.GetComponent<SlotUi>();
 
-                        TextMeshProUGUI CountTransform = Slot.transform.Find("Count").GetComponent<TextMeshProUGUI>();
+                        TextMeshProUGUI CountTransform = Slot.transform.Find("CraftedCount").GetComponent<TextMeshProUGUI>();
 
                         if (place.inventory.Occurenceitems.ContainsKey(Slot.item))
                         {

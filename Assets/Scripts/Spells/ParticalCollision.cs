@@ -1,17 +1,14 @@
 using System;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class ParticalCollision : MonoBehaviour
 {
         private ParticleSystem PSystem;
-        private List<ParticleCollisionEvent> CollisionEvents;
         public static Action<int> UpdateEnemiesCount;
 
         private void Awake()
         {
                 PSystem = GetComponent<ParticleSystem>();
-                CollisionEvents = new List<ParticleCollisionEvent>();
         }
 
         public void OnParticleCollision(GameObject other)

@@ -39,7 +39,15 @@ public class PlayerJumigState : IState
 
                 player.pressF = Input.GetKeyDown(KeyCode.F);
         }
-
+        public void OnTriggerEnter(Collider collider)
+        {
+                Debug.Log($"collider {collider}");
+                if (collider.CompareTag("Craft"))
+                {
+                        // show ui Element
+                        //player.UiMessage.Invoke("Stay near the Vet and Press F To Enter Crafting Shop");
+                }
+        }
         public void OnAnimationEnterEvent()
         {
                 throw new System.NotImplementedException();
@@ -55,10 +63,6 @@ public class PlayerJumigState : IState
                 throw new System.NotImplementedException();
         }
 
-        public void OnTriggerEnter(Collider collider)
-        {
-                throw new System.NotImplementedException();
-        }
 
         public void OnTriggerExit(Collider collider)
         {

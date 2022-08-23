@@ -19,7 +19,7 @@ public class CraftingPlace : MonoBehaviour
                 }
                 else
                 {
-                        Debug.Log($" cant Craft {obj.nameItem}");
+                        Player.UiMessage.Invoke($"cant Craft {obj.nameItem}");
                 }
         }
 
@@ -35,7 +35,7 @@ public class CraftingPlace : MonoBehaviour
 
         private void OnTriggerExit(Collider other)
         {
-                inventory = null;
+                //inventory = null;
         }
 
         private void OnTriggerEnter(Collider other)
